@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Søknadsresultat</h1>
+
+{% if status == "TILBUD" %}
+    <h2>Gratulerer!</h2>
+    <p>Vi er glade for å kunne tilby deg en plass i barnehagen.</p>
+    <p>Vi vil ta kontakt med deg for videre prosessering av plassen.</p>
+{% elif status == "Fortrinnsrett, venter på ledig plass" %}
+    <h2>Fortrinnsrett</h2>
+    <p>Din søknad har fortrinnsrett, men det er for øyeblikket ikke nok ledige plasser. Du vil bli prioritert når en plass blir tilgjengelig.</p>
+    <p>Vi anbefaler at du holder øye med e-posten for fremtidige oppdateringer.</p>
+{% else %}
+    <h2>Beklager!</h2>
+    <p>Vi har for øyeblikket ikke ledige plasser, og kan derfor ikke tilby deg barnehageplass.</p>
+    <p>Vi setter stor pris på din interesse og anbefaler at du søker igjen ved neste anledning.</p>
+{% endif %}
+
+<a href="{{ url_for('index') }}">Tilbake til forsiden</a>
+{% endblock %}

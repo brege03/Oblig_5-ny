@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-0bb879092865ccd13059ad37113ff3e6"}, "mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "Year", "type": "nominal"}, {"field": "Percentage", "type": "nominal"}], "x": {"field": "Year", "title": "Year", "type": "ordinal"}, "y": {"field": "Percentage", "title": "Percentage in Kindergarten", "type": "quantitative"}}, "height": 400, "title": "Kindergarten Enrollment Percentage for 3021 \u00c5s (2015-2023)", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-0bb879092865ccd13059ad37113ff3e6": [{"Kommune": "3021 \u00c5s", "Year": "2015", "Percentage": "."}, {"Kommune": "3021 \u00c5s", "Year": "2016", "Percentage": "."}, {"Kommune": "3021 \u00c5s", "Year": "2017", "Percentage": "."}, {"Kommune": "3021 \u00c5s", "Year": "2018", "Percentage": "."}, {"Kommune": "3021 \u00c5s", "Year": "2019", "Percentage": "."}, {"Kommune": "3021 \u00c5s", "Year": "2020", "Percentage": 88.3}, {"Kommune": "3021 \u00c5s", "Year": "2021", "Percentage": 91.2}, {"Kommune": "3021 \u00c5s", "Year": "2022", "Percentage": 92.5}, {"Kommune": "3021 \u00c5s", "Year": "2023", "Percentage": 93.8}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-9c128c6c3270c0f9e37fafdba7177d0a"}, "mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "Year", "type": "nominal"}, {"field": "Percentage", "type": "nominal"}], "x": {"field": "Year", "title": "Year", "type": "ordinal"}, "y": {"field": "Percentage", "title": "Percentage in Kindergarten", "type": "quantitative"}}, "height": 400, "title": "Kindergarten Enrollment Percentage for 3020 Nordre Follo (2015-2023)", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9c128c6c3270c0f9e37fafdba7177d0a": [{"Kommune": "3020 Nordre Follo", "Year": "2015", "Percentage": "."}, {"Kommune": "3020 Nordre Follo", "Year": "2016", "Percentage": "."}, {"Kommune": "3020 Nordre Follo", "Year": "2017", "Percentage": "."}, {"Kommune": "3020 Nordre Follo", "Year": "2018", "Percentage": "."}, {"Kommune": "3020 Nordre Follo", "Year": "2019", "Percentage": "."}, {"Kommune": "3020 Nordre Follo", "Year": "2020", "Percentage": 88.3}, {"Kommune": "3020 Nordre Follo", "Year": "2021", "Percentage": 87.9}, {"Kommune": "3020 Nordre Follo", "Year": "2022", "Percentage": 86.4}, {"Kommune": "3020 Nordre Follo", "Year": "2023", "Percentage": 85.7}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

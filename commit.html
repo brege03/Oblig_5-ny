@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Alle Data i Databasen</h1>
+
+<h2>Foresatte</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Foresatt ID</th>
+            <th>Navn</th>
+            <th>Adresse</th>
+            <th>Telefonnummer</th>
+            <th>Personnummer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for foresatt in foresatte %}
+        <tr>
+            <td>{{ foresatt.foresatt_id }}</td>
+            <td>{{ foresatt.foresatt_navn }}</td>
+            <td>{{ foresatt.foresatt_adresse }}</td>
+            <td>{{ foresatt.foresatt_tlfnr }}</td>
+            <td>{{ foresatt.foresatt_pnr }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Barn</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Barn ID</th>
+            <th>Personnummer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for barn in barn %}
+        <tr>
+            <td>{{ barn.barn_id }}</td>
+            <td>{{ barn.barn_pnr }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Søknader</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Søknad ID</th>
+            <th>Foresatt 1 ID</th>
+            <th>Foresatt 2 ID</th>
+            <th>Barn ID</th>
+            <th>Fortrinnsrett Barnevern</th>
+            <th>Fortrinnsrett Sykdom i Familie</th>
+            <th>Fortrinnsrett Sykdom på Barn</th>
+            <th>Annet</th>
+            <th>Barnehager Prioritert</th>
+            <th>Søsken i Barnehagen</th>
+            <th>Tidspunkt for Oppstart</th>
+            <th>Brutto Inntekt</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for soknad in soknader %}
+        <tr>
+            <td>{{ soknad.sok_id }}</td>
+            <td>{{ soknad.foresatt_1 }}</td>
+            <td>{{ soknad.foresatt_2 }}</td>
+            <td>{{ soknad.barn_1 }}</td>
+            <td>{{ soknad.fr_barnevern }}</td>
+            <td>{{ soknad.fr_sykd_familie }}</td>
+            <td>{{ soknad.fr_sykd_barn }}</td>
+            <td>{{ soknad.fr_annet }}</td>
+            <td>{{ soknad.barnehager_prioritert }}</td>
+            <td>{{ soknad.sosken__i_barnehagen }}</td>
+            <td>{{ soknad.tidspunkt_oppstart }}</td>
+            <td>{{ soknad.brutto_inntekt }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('index') }}">Tilbake til forsiden</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Statistikk over Prosentandel Barn i Barnehage (1-2 år)</h1>
+
+<form method="POST">
+    <label for="kommune">Velg en kommune:</label>
+    <select name="kommune" id="kommune">
+        {% for kommune in kommuner %}
+        <option value="{{ kommune }}">{{ kommune }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Vis Statistikk">
+</form>
+
+{% if chart_path %}
+    <h2>Statistikk for {{ request.form.get('kommune') }}</h2>
+    <iframe src="{{ url_for('static', filename=chart_path.split('/')[-1]) }}" width="600" height="400" frameborder="0"></iframe>
+{% endif %}
+
+<a href="{{ url_for('index') }}">Tilbake til hovedsiden</a>
+{% endblock %}

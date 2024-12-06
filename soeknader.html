@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Oversikt over Alle Søknader</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Navn - Forelder 1</th>
+            <th>Navn - Forelder 2</th>
+            <th>Navn - Barn</th>
+            <th>Adresse</th>
+            <th>Fødselsnummer - Barn</th>
+            <th>Prioritert Barnehage 1</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Brage K</td>
+            <td>Kris K</td>
+            <td>Endi</td>
+            <td>Hovehauen 10</td>
+            <td>9009090909</td>
+            <td>Seilduken Barnehage</td>
+            <td>Godkjent</td>
+        </tr>
+    </tbody>
+        <tbody>
+        <tr>
+            <td>Elina M</td>
+            <td>Endi M</td>
+            <td>Nicolai</td>
+            <td>Sigyns vei 4b</td>
+            <td>9009090910</td>
+            <td>Riflegat Barnehage</td>
+            <td>Godkjent</td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="/">Tilbake til hovedsiden</a>
+{% endblock %}
+<!-- Vi prøvde å automatisere navn inn i søknader siden, men vi fikk det ikke til. Derfor la vi navn, adresse og fødselsnummer inn manuelt -->
